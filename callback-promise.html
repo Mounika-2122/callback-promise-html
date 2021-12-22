@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>callback and Promise</h2>
+
+<p id="call"></p>
+
+<script>
+function myDisplayer(some) {
+  document.getElementById("call").innerHTML = some;
+}
+
+let myPromise = new Promise(function(resolve, reject) {
+  let x = 9;
+
+  if (x == 10) {
+    resolve("success");
+  } else {
+    reject("Error");
+  }
+});
+
+myPromise.then(
+  function(value) {myDisplayer(value);},
+  function(error) {myDisplayer(error);}
+);
+</script>
+
+</body>
+</html>
